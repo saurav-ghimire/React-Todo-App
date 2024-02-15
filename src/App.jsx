@@ -10,13 +10,19 @@ function App() {
 
   let InitialstodoItems = ['Hello', 'Worlds'];
   
-  const [todoItems, setTodoItems] = useState(InitialstodoItems)
+  const [todoItems, setTodoItems] = useState(InitialstodoItems);
   
+  // On Add todo Button is Clicked
   let onSubmitButton = (value) => {
-    const newValue = [...todoItems, value]
-    setTodoItems(newValue)
+    const newValue = [...todoItems, value];
+    setTodoItems(newValue);
   }
-  
+
+  // On Delete Button is Clicked
+  let onDeleteButton = (value) => {
+    let afterDeleteItems = todoItems.filter((items) => items !== value );
+    setTodoItems(afterDeleteItems);
+  }
   return (
     <>
       <div className="container">
@@ -28,7 +34,7 @@ function App() {
             <AddTodo onSubmitButton={onSubmitButton} />
           </div>
           <div className='TodoWrapper'>
-            <TodoWrapper todoItems={todoItems} />
+            <TodoWrapper onDeleteButton={onDeleteButton} todoItems={todoItems} />
           </div>
         </div>
       </div>

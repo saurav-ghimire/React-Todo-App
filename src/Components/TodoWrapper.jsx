@@ -1,12 +1,12 @@
 import SingleItem from "./SingleTodoItem";
 
 
-function TodoWrapper({todoItems}) {
+function TodoWrapper({todoItems, onDeleteButton}) {
   return ( 
     <>
     {
      todoItems.map((data) => (
-      <SingleItem key={data} list={data}  />
+      <SingleItem key={data} list={data} onDeleteButton={onDeleteButton} />
      ))
     }
     </>
