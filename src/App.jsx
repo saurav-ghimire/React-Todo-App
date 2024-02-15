@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import Heading from './Components/heading';
@@ -8,9 +8,15 @@ import TodoWrapper from './Components/TodoWrapper';
 
 function App() {
 
-  let todoItems = ['Hello', 'Worlds'];
-
-
+  let InitialstodoItems = ['Hello', 'Worlds'];
+  
+  const [todoItems, setTodoItems] = useState(InitialstodoItems)
+  
+  let onSubmitButton = (value) => {
+    const newValue = [...todoItems, value]
+    setTodoItems(newValue)
+  }
+  
   return (
     <>
       <div className="container">
@@ -19,7 +25,7 @@ function App() {
             <Heading />
           </div>
           <div className='AddTodoForm'>
-            <AddTodo />
+            <AddTodo onSubmitButton={onSubmitButton} />
           </div>
           <div className='TodoWrapper'>
             <TodoWrapper todoItems={todoItems} />

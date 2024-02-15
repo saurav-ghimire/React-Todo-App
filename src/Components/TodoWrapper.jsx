@@ -6,7 +6,7 @@ function TodoWrapper({todoItems}) {
     <>
     {
      todoItems.map((data) => (
-      <SingleItem list={data}  />
+      <SingleItem key={data} list={data}  />
      ))
     }
     </>
