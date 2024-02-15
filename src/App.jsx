@@ -2,6 +2,7 @@ import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import Heading from './Components/heading';
+import AddTodo from './Components/AddTodo';
 
 
 function App() {
@@ -9,7 +10,14 @@ function App() {
   return (
     <>
       <div className="container">
-        <Heading />
+        <div className='todoWrapper'>
+          <div className="title">
+            <Heading />
+          </div>
+          <div className='AddTodoForm'>
+            <AddTodo />
+          </div>
+        </div>
       </div>
     </>
   )
