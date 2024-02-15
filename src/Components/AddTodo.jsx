@@ -10,6 +10,7 @@ function AddTodo({onSubmitButton}) {
 
   const onButtonClick = (value) => {
     onSubmitButton(value);
+    setInputValue("")
   }
 
   
@@ -18,6 +19,7 @@ function AddTodo({onSubmitButton}) {
       <input type="text"
       placeholder="Enter Your Todo Here"
       onChange={handleInput}
+      value={inputValue}
       />
       <button onClick={() => onButtonClick(inputValue)}>Add your Todo</button>
     </>
