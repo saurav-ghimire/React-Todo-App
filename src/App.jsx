@@ -3,9 +3,13 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Heading from './Components/heading';
 import AddTodo from './Components/AddTodo';
+import TodoWrapper from './Components/TodoWrapper';
 
 
 function App() {
+
+  let todoItems = ['Hello', 'Worlds'];
+
 
   return (
     <>
@@ -16,6 +20,9 @@ function App() {
           </div>
           <div className='AddTodoForm'>
             <AddTodo />
+          </div>
+          <div className='TodoWrapper'>
+            <TodoWrapper todoItems={todoItems} />
           </div>
         </div>
       </div>
