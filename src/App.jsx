@@ -1,4 +1,7 @@
+import React from 'react';
+
 import 'bootstrap/dist/css/bootstrap.css';
+import Heading from './Components/heading';
 
 
 function App() {
@@ -6,7 +9,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <h2>My React Todo</h2>
+        <Heading />
       </div>
     </>
   )
