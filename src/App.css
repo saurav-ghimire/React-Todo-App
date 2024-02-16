@@ -1,0 +1,72 @@
+body,h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding:0;
+}
+
+
+body{
+  background-color: #0463f0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.todoWrapper{
+  text-align: center;
+  max-width: 100%;
+  min-width: 600px;
+  background-color: #fff;
+  padding: 20px 50px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 3px 19px -6px #000000; 
+  box-shadow: 0px 3px 19px -6px #000000;
+}
+
+.todoWrapper h1{
+  margin-bottom: 30px;
+  color: #0463f0;
+  font-weight: bold;
+}
+
+.AddTodoForm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AddTodoForm input.searchField{
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #eee;
+  height: 50px;
+  border-radius: 5px;
+}
+.AddTodoForm button.addButton{
+  height: 50px;
+  background: #0463f0;
+  border: 0;
+  width: 50px;
+  color: #fff;
+  font-size: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+.SingleTodoWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+.SingleTodoWrapper h2{
+  color: #333;
+  font-size: 23px;
+}

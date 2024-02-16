@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoAddCircleOutline } from "react-icons/io5";
 
 function AddTodo({onSubmitButton}) {
 
@@ -8,9 +9,15 @@ function AddTodo({onSubmitButton}) {
     setInputValue(event.target.value)
   }
 
+
   const onButtonClick = (value) => {
-    onSubmitButton(value);
-    setInputValue("")
+    if(value){
+      onSubmitButton(value);
+      setInputValue("")
+    }else{
+      alert('Field Cannot be Empty');
+      return false;
+    }
   }
 
   
@@ -20,8 +27,13 @@ function AddTodo({onSubmitButton}) {
       placeholder="Enter Your Todo Here"
       onChange={handleInput}
       value={inputValue}
+      className="searchField"
       />
-      <button onClick={() => onButtonClick(inputValue)}>Add your Todo</button>
+      <button
+      className="addButton"
+      onClick={() => onButtonClick(inputValue)}
+      ><IoAddCircleOutline />
+      </button>
     </>
    );
 }

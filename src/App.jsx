@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
 import Heading from './Components/heading';
 import AddTodo from './Components/AddTodo';
 import TodoWrapper from './Components/TodoWrapper';

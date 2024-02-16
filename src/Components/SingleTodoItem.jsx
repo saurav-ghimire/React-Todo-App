@@ -1,3 +1,5 @@
+import { TiDelete } from "react-icons/ti";
+
 function SingleItem({list, onDeleteButton}) {
   
   return ( 
@@ -7,7 +9,7 @@ function SingleItem({list, onDeleteButton}) {
         <button
         className="btn btn-danger"
         onClick={() => onDeleteButton(list)}
-        >Delete</button>
+        >< TiDelete/></button>
       </div>
     </>
     

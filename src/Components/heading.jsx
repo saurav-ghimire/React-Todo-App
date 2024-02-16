@@ -1,6 +1,6 @@
 function heading() {
   return ( 
-    <h1>My Todo</h1>
+    <h1>Create Your Todo List</h1>
    );
 }
 
