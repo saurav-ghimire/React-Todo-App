@@ -1,14 +1,16 @@
+import { useContext } from "react";
 import { TiDelete } from "react-icons/ti";
+import TodoItemsContext from "../store/todoItemsStore";
 
-function SingleItem({list, onDeleteButton}) {
-  
+function SingleItem({list}) {
+  const {deleteItem} = useContext(TodoItemsContext)
   return ( 
     <>
       <div className="SingleTodoWrapper">
         <h2>{list}</h2>
         <button
         className="btn btn-danger"
-        onClick={() => onDeleteButton(list)}
+        onClick={() => deleteItem(list)}
         >< TiDelete/></button>
       </div>
     </>

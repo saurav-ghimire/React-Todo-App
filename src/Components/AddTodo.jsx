@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+
 import { IoAddCircleOutline } from "react-icons/io5";
+import TodoItemsContext from "../store/todoItemsStore";
 
-function AddTodo({onSubmitButton}) {
-
+function AddTodo() {
+  const {addNewItem} = useContext(TodoItemsContext)  
   let [inputValue, setInputValue] = useState("");
 
   const handleInput = (event) => {
@@ -12,7 +14,7 @@ function AddTodo({onSubmitButton}) {
 
   const onButtonClick = (value) => {
     if(value){
-      onSubmitButton(value);
+      addNewItem(value);
       setInputValue("")
     }else{
       alert('Field Cannot be Empty');
