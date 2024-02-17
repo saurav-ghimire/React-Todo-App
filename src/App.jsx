@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
@@ -6,28 +6,73 @@ import Heading from './Components/heading';
 import AddTodo from './Components/AddTodo';
 import TodoWrapper from './Components/TodoWrapper';
 import Welcome from './Components/Welcome';
-
 // Context
 import TodoItemsContext from './store/todoItemsStore';
 
+const reducer = (currentTodo, action) => {
+  let newTodos = currentTodo;
+  if(action.type === 'NEW_ITEM'){
+    
+    newTodos = [...currentTodo, action.payload.itemName];
+  
+  }else if(action.type === 'DELETE_ITEM'){
+    newTodos = currentTodo.filter((items) => items !== action.payload.itemName );
+  }
+  return newTodos;
+}
 
 function App() {
 
   let InitialstodoItems = ['Hello', 'World'];
   
-  const [todoItems, setTodoItems] = useState(InitialstodoItems);
-  
-  // On Add todo Button is Clicked
+  // const [todoItems, setTodoItems] = useState(InitialstodoItems);
+
+  const [todoItems, dispatchTodoItems] = useReducer(reducer, InitialstodoItems)
+
   let onSubmitButton = (value) => {
-    const newValue = [...todoItems, value];
-    setTodoItems(newValue);
+    
+    const newItemAction = {
+      type: 'NEW_ITEM',
+      payload: {
+        itemName: value
+      }
+    }
+
+    dispatchTodoItems(newItemAction)
+    
   }
 
+
+  // On Add todo Button is Clicked
+  // let onSubmitButton = (value) => {
+  //   const newValue = [...todoItems, value];
+  //   setTodoItems(newValue);
+  // }
+
+  
   // On Delete Button is Clicked
+
   let onDeleteButton = (value) => {
-    let afterDeleteItems = todoItems.filter((items) => items !== value );
-    setTodoItems(afterDeleteItems);
+    
+    const deleteItemAction = {
+
+      type : 'DELETE_ITEM',
+      payload : {
+        itemName : value
+      }
+
+    }
+
+    dispatchTodoItems(deleteItemAction)
   }
+  
+  
+
+  // let onDeleteButton = (value) => {
+  //   let afterDeleteItems = todoItems.filter((items) => items !== value );
+  //   setTodoItems(afterDeleteItems);
+  // }
+  
   const defaultTodo = [];
   return (
     <TodoItemsContext.Provider

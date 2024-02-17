@@ -7,7 +7,7 @@ function Welcome() {
   const todoItems = contextObj.todoItems;
 
   return <div className="emptyMessage">
-      {todoItems.length === 0 && <p>Your List is Empty</p>}
+      {todoItems.lenght === 0 && <p>Your List is Empty</p>}
     </div>
   
 }
